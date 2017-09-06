@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    function test1() {
+        $.get("test62.php",mycb)
+    };
+
+    function mycb(data,status) {
+        $("#here").html(data + ":" + status);
+    }
+
+    function test2() {
+        //檢查資料是否重複
+        var account = $("#account").val();
+
+        $.get("test62.php?account="+account,function (data,status) {
+            if (data>=1){
+                $("#mesg").html("資料重複!!");
+                $("#account").focus();
+            }else{
+                $("#mesg").html("");
+            }
+        })
+    }
+
+
+</script>
+
+
+<input id="account" onblur="test2()"><span id="mesg"></span><br>
+<!--div是block 自己會佔掉一格 span是line 東西會接在後面-->
+<input id="passwd"><br>
+
