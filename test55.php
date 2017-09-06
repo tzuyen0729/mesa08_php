@@ -14,6 +14,7 @@
     function del_confirm(name) {
         return confirm("delete "+name);
     }
+    
 
 
 </script>
